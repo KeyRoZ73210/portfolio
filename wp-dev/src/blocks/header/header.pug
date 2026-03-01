@@ -1,0 +1,19 @@
+//- header.header
+
+//-   nav.header--nav
+
+//-     .header--menu-hamburger 
+//-       button.hamburger.hamburger--slider(type="button" aria-label="Menu")
+//-         span.hamburger-box
+//-           span.hamburger-inner
+
+//-     <?php if(isset(getThemeOption('logo_header')['url'])) : ?>
+//-       a.header--logo(href="/" aria-label="Logo le Glacier de Savoie")
+//-         <?php $url = getThemeOption('logo_header')['url'] ; $ext = pathinfo( $url, PATHINFO_EXTENSION ); if ( $ext == 'svg' ) : ?>
+//-           <?= file_get_contents($url); ?>
+//-         <?php else : ?>
+//-           <?= wp_img(getThemeOption('logo_header')['id'], '') ?>
+//-         <?php endif; ?>
+//-     <?php endif; ?>
+
+//-   .header--full

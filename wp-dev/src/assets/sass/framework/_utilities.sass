@@ -1,0 +1,38 @@
+@use "../config/variables.sass" as *
+
+.colored
+  &--none
+    background-color: transparent
+  &--primary
+    background-color: $color-primary
+    color: $color-secondary
+  &--secondary
+    background-color: $color-secondary
+    color: $color-primary
+  &--tertiary
+    background-color: $color-tertiary
+    color: $color-primary
+  &--4
+    background-color: $color-4
+    color: $color-primary
+  &--img
+    color: $color-secondary
+    overflow: hidden
+    position: relative
+    &>img
+      position: absolute
+      width: auto
+      height: 100%
+      z-index: -1
+
+.color
+  &--primary
+    color: $color-primary
+  &--secondary
+    color: $color-secondary
+  &--tertiary
+    color: $color-tertiary
+  &--4
+    color: $color-4
+  &--none
+    color: transparent

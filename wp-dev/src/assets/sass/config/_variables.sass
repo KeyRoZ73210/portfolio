@@ -1,0 +1,31 @@
+@use "./colors.scss" as *
+
+// === FONTS (tokens) ===
+$font-primary: 'Font-1', serif
+$font-secondary: 'Font-2', serif
+
+// wght-80 = good wght for figma
+$figma-correction: 80
+
+$thin: 'wght' 0
+$light: 'wght' calc(300 - $figma-correction)
+$regular: 'wght' calc(400 - $figma-correction)
+$medium: 'wght' calc(500 - $figma-correction)
+$semi-bold: 'wght' calc(600 - $figma-correction)
+$bold: 'wght' calc(700 - $figma-correction)
+$extra-bold: 'wght' calc(800 - $figma-correction)
+$black: 'wght' calc(900 - $figma-correction)
+
+// === COLORS (tokens) ===
+$color-primary: color(primary)
+$color-secondary: color(secondary)
+$color-tertiary: color(tertiary)
+$color-4: color(4)
+
+// === BREAKPOINTS ===
+$breakpoint-xs: 0
+$breakpoint-sm: 576px
+$breakpoint-md: 768px
+$breakpoint-lg: 992px
+$breakpoint-xl: 1200px
+$breakpoint-xxl: 1400px

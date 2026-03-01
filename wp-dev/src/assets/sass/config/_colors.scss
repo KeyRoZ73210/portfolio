@@ -1,0 +1,61 @@
+// FUNCTION
+@function color($color-name) {
+  @return var(--color-#{$color-name});
+}
+
+// THEME COLORS
+$-theme-light: (
+  primary: #000,
+  secondary: #FFFFFF,
+  tertiary: #D2E9E6,
+  4: #ECECEC,
+  // 5: #a4a4a4,
+  // 6: #e6e6e6,
+);
+// $theme-dark: (
+//   primary: #333333,
+//   secondary: #FFFFFF,
+//   tertiary: #3498db,
+//   4: #aed6f1,
+//   5: #a4a4a4,
+//   6: #e6e6e6,
+// );
+
+// THEME LIGHT
+:root {
+  @each $colors, $color in $-theme-light {
+    --color-#{$colors}: #{$color};
+  }
+}
+
+// reset 
+// body {
+//   color: color(primary);
+//   background-color: color(secondary);
+// }
+
+// THEME DARK
+// @media (prefers-color-scheme: dark) {
+//   :root {
+//     @each $colors, $color in $theme-dark {
+//       --color-#{$colors}: #{$color};
+//     }
+//   }
+  
+//   // reset 
+//   body {
+//     color: color(tertiary);
+//     background-color: color(secondary);
+//   }
+
+//   * {
+//     box-shadow: unset !important;
+//   }
+//   img,
+//   svg {
+//     filter: brightness(.8);
+//   }
+//   iframe {
+//     filter: brightness(.8) contrast(1.2);
+//   }
+// }

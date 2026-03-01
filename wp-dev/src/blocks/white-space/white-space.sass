@@ -1,0 +1,48 @@
+@use 'sass:list'
+@use 'sass:math'
+
+//WHITE SPACE
+$breakpoints: xs 100%, sm 576px, md 768px, lg 992px, xl 1200px, xxl 1400px
+$max: 300
+$step: 10
+
+// ratio = px / valeur en vw correspondant au px
+// ex : 30px -> 2.292vw pour 1280px | 13.09 = 30/2.292
+// ex : 100px -> 6.93vw pour 1440px | 14.43 = 100/2.292
+$ext: 14.43
+
+.ws
+  height: Max(#{math.ceil(calc($max / $step))}px, #{calc(round(calc(($step / $ext))*10000)/10000)}vw)
+
+@for $i from 0 through math.ceil(calc($max / $step))
+  $value: $i * $step
+  .ws-#{$value}
+    height: Max(#{$value}px, #{calc(round(calc($value / $ext)*10000)/10000)}vw)
+
+.ws-n
+  margin-top: Max(-#{math.ceil(calc($max / $step))}px, -#{calc(round(calc($step / $ext)*10000)/10000)}vw)
+
+@for $i from 0 through math.ceil(calc($max / $step))
+  $value: $i * $step
+  .ws-n-#{$value}
+    margin-top: Max(-#{$value}px, -#{calc(round(calc($value / $ext)*10000)/10000)}vw)
+
+@each $breakpoint in $breakpoints
+  @media (min-width: list.nth($breakpoint, 2))
+    .ws-#{list.nth($breakpoint, 1)}
+      height: Max(#{math.ceil(calc($max / $step))}px, #{calc(round(calc($step / $ext)*10000)/10000)}vw)
+
+    @for $i from 0 through math.ceil(calc($max / $step))
+      $value: $i * $step
+      .ws-#{list.nth($breakpoint, 1)}
+        &-#{$value}
+          height: Max(#{$value}px, #{calc(round(calc($value / $ext)*10000)/10000)}vw)
+
+    .ws-n-#{list.nth($breakpoint, 1)}
+      margin-top: Max(-#{math.ceil(calc($max / $step))}px, -#{calc(round(calc($step / $ext)*10000)/10000)}vw)
+
+    @for $i from 0 through math.ceil(calc($max / $step))
+      $value: $i * $step
+      .ws-n-#{list.nth($breakpoint, 1)}
+        &-#{$value}
+          margin-top: Max(-#{$value}px, -#{calc(round(calc($value / $ext)*10000)/10000)}vw)

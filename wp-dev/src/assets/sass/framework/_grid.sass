@@ -1,0 +1,160 @@
+@use 'sass:list'
+@use 'sass:math'
+
+//GRIDED
+$breakpoints: xs 100%, sm 576px, md 768px, lg 992px, xl 1200px, xxl 1400px
+$columns: 12
+$masonry-level: 6
+
+.d-grid
+  display: grid
+
+.container
+  margin-left: auto
+  margin-right: auto
+  padding-left: 15px
+  padding-right: 15px
+
+.container-ext
+  margin-left: 6.25vw
+  margin-right: 6.25vw   
+
+.row
+  display: grid
+  grid-template-columns: repeat($columns, 1fr)
+  column-gap: Max(21px,1.389vw)
+  word-break: break-all
+  *
+    direction: ltr
+    word-break: break-word
+
+.reverse
+  direction: rtl
+// .reverse
+//   div:first-child
+//     order: 1
+
+.justify-content
+  &-start
+    justify-self: start
+    justify-items: start
+  &-center
+    justify-self: center
+    justify-items: center 
+  &-end
+    justify-self: end
+    justify-items: end
+  &-between
+    justify-content: space-between
+  &-around
+    justify-content: space-around
+
+.align-items
+  &-start
+    align-self: start
+    align-items: start
+  &-center
+    align-self: center
+    align-items: center
+  &-end
+    align-self: end
+    align-items: end
+  &-stretch
+    align-self: stretch
+    align-items: stretch
+
+@for $i from 1 through $columns
+  .col
+    &-#{$i}
+      grid-column-end: span #{$i}
+
+@for $i from 0 through $columns
+  .order
+    &-#{$i}
+      order: #{$i}
+
+@for $i from 1 through $columns - 1
+  .offset
+    &-#{$i}
+      grid-column-start: #{$i+1}
+    &-0
+      grid-column-start: unset
+
+.masonry
+  display: grid
+  grid-template-columns: repeat($columns, 1fr)
+  gap: 1.389vw
+  grid-auto-rows: calc(50vh/#{$masonry-level})
+  > div
+    grid-row-end: span #{$masonry-level}
+  @for $i from 1 through $masonry-level 
+    .level
+      &-#{$i}
+        grid-row-end: span #{$i}
+
+@each $breakpoint in $breakpoints
+  @media (min-width: list.nth($breakpoint, 2))
+    .container
+      width: #{calc(calc(math.floor((calc(list.nth($breakpoint, 2)/1.06))*0.1)/0.1) - 33px)}
+
+    .reverse-#{list.nth($breakpoint, 1)}
+      direction: rtl
+
+    .justify-content-#{list.nth($breakpoint, 1)}
+      &-start
+        justify-self: start
+        justify-items: start
+      &-center
+        justify-self: center
+        justify-items: center 
+      &-end
+        justify-self: end
+        justify-items: end
+      &-between
+        justify-content: space-between
+      &-around
+        justify-content: space-around
+
+    .align-items-#{list.nth($breakpoint, 1)}
+      &-start
+        align-self: start
+        align-items: start
+      &-center
+        align-self: center
+        align-items: center
+      &-end
+        align-self: end
+        align-items: end
+      &-stretch
+        align-self: stretch
+        align-items: stretch
+
+    @for $i from 1 through $columns
+      .col-#{list.nth($breakpoint, 1)}
+        &-#{$i}
+          grid-column-end: span #{$i}
+      
+    @for $i from 0 through $columns
+      .order-#{list.nth($breakpoint, 1)}
+        &-#{$i}
+          order: #{$i}
+      
+    @for $i from 0 through $columns - 1
+      .offset-#{list.nth($breakpoint, 1)}
+        &-#{$i}
+          grid-column-start: #{$i+1}
+        &-0
+          grid-column-start: unset
+
+    .masonry 
+      > div
+        grid-row-end: span #{$masonry-level}
+      @for $i from 1 through $masonry-level 
+        .level-#{list.nth($breakpoint, 1)}
+          &-#{$i}
+            grid-row-end: span #{$i}
+
+
+@media (width > 2000px)
+  .container
+    width: 100rem

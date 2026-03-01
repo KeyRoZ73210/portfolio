@@ -1,0 +1,107 @@
+@use "./variables.sass" as *
+
+/* ======================================================================== */
+/* BREAKPOINTS                                                              */
+/* ======================================================================== */
+@mixin breakpoint_sm()
+  @media (min-width: $breakpoint-sm)
+    @content
+  
+
+@mixin breakpoint_md()
+  @media (min-width: $breakpoint-md)
+    @content
+  
+
+@mixin breakpoint_lg()
+  @media (min-width: $breakpoint-lg)
+    @content
+  
+
+@mixin breakpoint_xl()
+  @media (min-width: $breakpoint-xl)
+    @content
+
+@mixin breakpoint_xxl()
+  @media (min-width: $breakpoint-xxl)
+    @content
+  
+ 
+@mixin breakpoint_range($min, $max)
+  @media (max-width: $max) and (min-width: $min)
+    @content
+  
+ 
+@mixin breakpoint_min($min)
+  @media (min-width: $min)
+    @content
+ 
+@mixin breakpoint_max($max)
+  @media (max-width: $max)
+    @content
+
+@mixin breakpoint_mayta()
+  @media (min-width: 1200px) and (max-height: 720px)
+    @content
+
+// Rem output with px fallback
+@mixin font-size($sizeValue: 1) 
+  font-size: ($sizeValue * 16) * 1px
+  font-size: $sizeValue * 1rem
+
+
+// Clearfix
+@mixin clearfix() 
+  &:before,
+  &:after
+    content: ""
+    display: table
+    table-layout: fixed
+    clear: both		
+
+
+// Clear after (not all clearfix need this also)
+@mixin clearfix-after() 
+  clear: both
+
+
+// field placeholder
+@mixin placeholder()
+  ::placeholder
+    @content
+
+  ::-moz-placeholder
+    @content
+  
+@mixin selection()
+  ::selection
+    @content
+  
+  ::-moz-selection
+    @content
+  
+
+@mixin opacity ( $value: 0.5 )
+  opacity: $value
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=” $value * 100 “)"
+  filter: alpha(opacity= $value * 100 )
+  zoom: 1
+
+@mixin transition ($prop: all, $time:0.3s, $ease: ease-in-out)
+  transition: $prop $time $ease
+
+
+// Absolute center positionning
+@mixin centerX
+  position: absolute
+  left: 50%
+  transform: translateX(-50%)
+@mixin centerY
+  position: absolute
+  top: 50%
+  transform: translateY(-50%)
+@mixin centerXY
+  position: absolute
+  left: 50%
+  top: 50%
+  transform: translate(-50%,-50%)

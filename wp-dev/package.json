@@ -1,0 +1,46 @@
+{
+  "name": "wordpress-modern-boilerplate",
+  "version": "1.0.0",
+  "description": "Modern WordPress theme boilerplate (Gulp 4 + ESBuild + Dart Sass + BrowserSync + Vanilla JS).",
+  "main": "gulpfile.js",
+  "license": "ISC",
+  "author": "Thomas Fleury, Luc Moiraud",
+  "private": true,
+  "scripts": {
+    "dev": "NODE_ENV=development gulp watch",
+    "build": "NODE_ENV=production gulp build",
+    "sass": "gulp sass",
+    "js": "gulp js",
+    "audit:prod": "npm audit --omit=dev",
+    "audit:all": "npm audit"
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "npm": ">=9.4.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.13",
+    "browser-sync": "^3.0.4",
+    "cssnano": "^5.1.14",
+    "dotenv": "^17.3.1",
+    "esbuild": "^0.27.3",
+    "gulp": "^4.0.2",
+    "gulp-dart-sass": "^1.1.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-postcss": "^9.0.1",
+    "gulp-pug": "^5.0.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-svg-sprite": "^2.0.1",
+    "gulp-zip": "^5.1.0",
+    "postcss-combine-duplicated-selectors": "^10.0.3",
+    "postcss-combine-media-query": "^1.0.1",
+    "postcss-import": "^16.1.1",
+    "postcss-sort-media-queries": "^4.3.0",
+    "sass": "^1.97.3",
+    "sass-embedded": "^1.97.3"
+  },
+  "dependencies": {
+    "swiper": "^12.1.2"
+  }
+}

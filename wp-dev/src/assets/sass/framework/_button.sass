@@ -1,0 +1,28 @@
+@use "../config" as *
+
+.btn
+  // reset
+  position: relative
+  display: flex
+  align-items: center
+  width: fit-content
+  cursor: pointer
+  user-select: none
+  pointer-events: all
+  overflow: hidden
+
+  // font
+  // font-family: c.$font-tertiary
+  // font-variation-settings: c.$bold
+  font-size: Max(.8em, .9vw)
+  line-height: 145%
+  letter-spacing: Max(0.047em,.07vw)
+  text-align: center
+  word-break: break-word
+  text-transform: uppercase
+
+  // style general
+  // border: Max(1px, .2vw)
+  // border-style: solid
+  padding: Max(12px, 1.2vw) Max(25px, 1.7vw)
+  transition: all .5s ease-in-out
