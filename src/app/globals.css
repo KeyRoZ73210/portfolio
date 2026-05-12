@@ -1,26 +1,72 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Layout */
+  --container-width: 1200px;
+  --container-padding: 15px;
+  --container-ext-margin: 6.25vw;
+  
+  /* Background colors */
+  --background-primary: #0a0a0a;
+  --background-primary-bis: #0f0f0f;
+  --background-tertiary: #f3f4f6;
+  
+  /* Text colors */
+  --text-primary: #f4f2ee;
+  --text-secondary: #e8e5df;
+  --text-italic: #6b6862;
+
+  /* lines */
+  --line-primary: #3a3834;
+
+  /* Accents */
+  --accent-primary: #9ae66e;
+  --accent-secondary: #e8c074;
+
+  /* Typo */
+  --font-heading: var(--font-instrument-serif);
+  --font-body: "Neue Haas Grotesk", "Helvetica Neue", Inter, system-ui, sans-serif;
+  --font-accent: var(--font-jetbrains-mono);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-background-primary: var(--background-primary);
+  --color-background-primary-bis: var(--background-primary-bis);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-italic: var(--text-italic);
+  --color-accent-primary: var(--accent-primary);
+  --color-accent-secondary: var(--accent-secondary);
+  --color-line-primary: var(--line-primary);
+  --font-heading: var(--font-heading);
+  --font-body: var(--font-body);
+  --font-accent: var(--font-accent);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+  max-width: var(--container-width);
+}
+
+.container-ext {
+  margin-left: var(--container-ext-margin);
+  margin-right: var(--container-ext-margin);
+}
+
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  color: var(--text-primary);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--background-primary);
+  color: var(--text-secondary);
+  font-family: var(--font-body);
+}
+
+code, pre {
+  font-family: var(--font-accent);
 }
